@@ -1,6 +1,17 @@
 "use client";
 
-import { GitHubCalendar } from "react-github-calendar";
+import dynamic from "next/dynamic";
+
+const GitHubCalendar = dynamic(
+  () => import("react-github-calendar").then((mod) => mod.GitHubCalendar),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[130px] animate-pulse bg-btn/50 rounded-md" />
+    ),
+  }
+);
+
 
 const customTheme = {
   light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
