@@ -7,7 +7,7 @@ export interface GithubRepository {
   language: string | null;
   topics: string[];
   stargazers_count: number;
-  forks_count: number;
+  // forks_count: number;
   updated_at: string;
   fork: boolean;
 }

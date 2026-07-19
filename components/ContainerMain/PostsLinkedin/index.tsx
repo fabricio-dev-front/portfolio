@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { PortfolioPost } from "@/types/linkedin";
 import LinkedinPostsSkeleton from "./skeleton";
+import { IconComments, IconLike } from "@/public/assets/icons";
 
 export default function LinkedinPosts() {
   const [posts, setPosts] = useState<PortfolioPost[]>([]);
@@ -36,21 +37,21 @@ export default function LinkedinPosts() {
 
   if (error || posts.length === 0) {
     return (
-      <div className="rounded-xl bg-[#302F3D] p-6 text-center text-gray-400 w-full">
+      <div className="rounded-lg bg-card border border-card-border p-6 text-center text-muted-text w-full">
         Nenhum post do LinkedIn disponível no momento.
       </div>
     );
   }
 
   return (
-    <section className="flex flex-col gap-8 w-full">
+    <section className="flex flex-col gap-6 w-full">
       {posts.map((post) => (
         <a
           key={post.id}
           href={post.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="overflow-hidden flex flex-col sm:flex-row sm:items-center rounded-[20px] transition shadow-lg bg-[#302F3D] hover:bg-[#302F3D]/80 h-auto sm:h-[160px] w-full"
+          className="overflow-hidden flex flex-col sm:flex-row sm:items-center rounded-lg transition-all shadow-xs bg-card border border-card-border hover:opacity-95 h-auto sm:h-[160px] w-full"
         >
           {post.image && (
             <Image
@@ -63,11 +64,23 @@ export default function LinkedinPosts() {
           )}
 
           <div className="space-y-4 p-5 flex-1 w-full">
-            <p className="line-clamp-3 text-gray-200">{post.description}</p>
+            <p className="line-clamp-3 text-foreground text-sm leading-relaxed">
+              {post.description}
+            </p>
 
-            <div className="flex gap-6 text-sm text-gray-400">
-              <span>❤️ {post.likes}</span>
-              <span>💬 {post.comments}</span>
+            <div className="flex gap-4 text-xs items-center text-muted-text">
+              <span className="flex items-center gap-1">
+                <IconLike />
+                {post.likes}
+              </span>
+              <span className="flex items-center gap-1">
+                <IconComments />
+                {post.comments}
+              </span>
+
+              <div className="ml-auto text-sm font-semibold text-link hover:underline truncate">
+                Ler Mais
+              </div>
             </div>
           </div>
         </a>
