@@ -7,11 +7,10 @@ const GitHubCalendar = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[130px] animate-pulse bg-btn/50 rounded-md" />
+      <div className="w-full h-32.5 animate-pulse bg-btn/50 rounded-md" />
     ),
-  }
+  },
 );
-
 
 const customTheme = {
   light: ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
@@ -41,14 +40,14 @@ const customLabels = {
   },
 };
 
-export default function GithubCalendarComponent() {
+export function GithubCalendarComponent() {
   return (
     <div className="flex flex-col items-start rounded-lg bg-card border border-card-border p-5 shadow-sm w-full">
       <h3 className="text-sm font-semibold text-foreground mb-4">
         Contribuições do GitHub
       </h3>
       <div className="w-full overflow-x-auto no-scrollbar py-1 flex justify-start md:justify-center">
-        <div className="min-w-[600px] md:min-w-0 flex justify-start md:justify-center w-full">
+        <div className="min-w-150 md:min-w-0 flex justify-start md:justify-center w-full">
           <GitHubCalendar
             username="fabricio-dev-front"
             theme={customTheme}

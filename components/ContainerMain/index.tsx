@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { MyProjects } from "./MyProjects";
 import LinkedinPosts from "./PostsLinkedin";
 import LinkedinPostsSkeleton from "./PostsLinkedin/skeleton";
-import GithubCalendarComponent from "../Profile/GithubCalendar";
+import { GithubCalendarComponent } from "./GithubCalendar";
 
 export function ContainerMain() {
   return (

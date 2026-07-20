@@ -51,7 +51,7 @@ export default function LinkedinPosts() {
           href={post.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="overflow-hidden flex flex-col sm:flex-row sm:items-center rounded-lg transition-all shadow-xs bg-card border border-card-border hover:opacity-95 h-auto sm:h-[160px] w-full"
+          className="overflow-hidden flex flex-col sm:flex-row sm:items-center rounded-lg transition-all shadow-xs bg-card border border-card-border hover:opacity-95 h-auto sm:h-40 w-full"
         >
           {post.image && (
             <Image
@@ -59,7 +59,7 @@ export default function LinkedinPosts() {
               width={300}
               height={160}
               alt={post.description}
-              className="aspect-video w-full sm:w-[300px] h-40 sm:h-full object-cover shrink-0"
+              className="aspect-video w-full sm:w-75 h-40 sm:h-full object-cover shrink-0"
             />
           )}
 
