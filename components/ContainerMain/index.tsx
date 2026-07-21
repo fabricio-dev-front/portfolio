@@ -3,6 +3,7 @@ import { MyProjects } from "./MyProjects";
 import LinkedinPosts from "./PostsLinkedin";
 import LinkedinPostsSkeleton from "./PostsLinkedin/skeleton";
 import { GithubCalendarComponent } from "./GithubCalendar";
+import { Experiences } from "./Experiences";
 
 export function ContainerMain() {
   return (
@@ -10,6 +11,8 @@ export function ContainerMain() {
       <MyProjects />
 
       <GithubCalendarComponent />
+
+      <Experiences />
 
       <div className="rounded-lg bg-card border border-card-border shadow-sm flex items-center py-4 px-6 justify-between">
         <span className="font-semibold text-foreground text-[16px]">
