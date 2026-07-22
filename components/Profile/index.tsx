@@ -7,7 +7,9 @@ export function Profile() {
     <div className="flex flex-col gap-7.5 w-full">
       <CardPerfil />
       <CardTecnologias />
-      <DownloadResume />
+      <div className="px-1">
+        <DownloadResume />
+      </div>
     </div>
   );
 }

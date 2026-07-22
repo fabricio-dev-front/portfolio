@@ -28,19 +28,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0d1117;
-    --foreground: #e6edf3;
-    --card-bg: #161b22;
-    --card-border: #30363d;
-    --muted-text: #8d96a0;
-    --primary-button-bg: #21262d;
-    --primary-button-text: #c9d1d9;
-    --tag-bg: rgba(31, 111, 235, 0.15);
-    --tag-text: #58a6ff;
-    --link-color: #58a6ff;
-  }
+.dark {
+  --background: #0d1117;
+  --foreground: #e6edf3;
+  --card-bg: #161b22;
+  --card-border: #30363d;
+  --muted-text: #8d96a0;
+  --primary-button-bg: #21262d;
+  --primary-button-text: #c9d1d9;
+  --tag-bg: rgba(31, 111, 235, 0.15);
+  --tag-text: #58a6ff;
+  --link-color: #58a6ff;
 }
 
 body {

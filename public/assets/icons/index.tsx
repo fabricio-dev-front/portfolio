@@ -4,6 +4,8 @@ import { IconFavorites } from "./IconFavorites";
 import { IconRepository } from "./IconRepository";
 import { IconClose } from "./IconClose";
 import { IconChevronDown } from "./IconChevronDown";
+import { IconSun } from "./IconSun";
+import { IconMoon } from "./IconMoon";
 
 export {
   IconComments,
@@ -12,4 +14,6 @@ export {
   IconRepository,
   IconClose,
   IconChevronDown,
+  IconSun,
+  IconMoon,
 };

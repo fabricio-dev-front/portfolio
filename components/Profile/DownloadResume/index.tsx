@@ -26,7 +26,7 @@ export function DownloadResume() {
         <button
           type="button"
           onClick={() => setIsModalOpen(true)}
-          className="download-resume-button inline-flex w-full cursor-pointer items-center justify-center rounded-md bg-card py-2.5 text-sm font-medium"
+          className="download-resume-button shadow-lg inline-flex w-full cursor-pointer items-center justify-center rounded-md bg-card py-2.5 text-sm font-medium"
         >
           Baixar currículo
         </button>
@@ -103,19 +103,20 @@ export function DownloadResume() {
           padding: 2px;
           background: conic-gradient(
             from var(--ticket-border-angle),
-            rgba(240, 240, 240, 0) 0deg,
-            rgba(240, 240, 240, 0) 208deg,
-            rgba(240, 240, 240, 0.08) 222deg,
-            rgba(240, 240, 240, 0.18) 232deg,
-            rgba(240, 240, 240, 0.36) 240deg,
-            rgba(240, 240, 240, 0.58) 247deg,
-            rgba(240, 240, 240, 0.82) 253deg,
-            rgba(240, 240, 240, 0.96) 258deg,
-            rgba(240, 240, 240, 1) 269deg,
-            rgba(240, 240, 240, 0.92) 274deg,
-            rgba(240, 240, 240, 0) 276deg,
-            rgba(240, 240, 240, 0) 360deg
+            rgba(9, 105, 218, 0) 0deg,
+            rgba(9, 105, 218, 0) 208deg,
+            rgba(9, 105, 218, 0.08) 222deg,
+            rgba(9, 105, 218, 0.18) 232deg,
+            rgba(9, 105, 218, 0.36) 240deg,
+            rgba(9, 105, 218, 0.58) 247deg,
+            rgba(9, 105, 218, 0.82) 253deg,
+            rgba(9, 105, 218, 0.96) 258deg,
+            rgba(9, 105, 218, 1) 269deg,
+            rgba(9, 105, 218, 0.92) 274deg,
+            rgba(9, 105, 218, 0) 276deg,
+            rgba(9, 105, 218, 0) 360deg
           );
+          box-shadow: 0 0 10px rgba(9, 105, 218, 0.12);
           animation: ticket-border-spin 6s linear infinite;
         }
 
@@ -125,6 +126,7 @@ export function DownloadResume() {
           inset: 2px;
           border-radius: calc(0.375rem - 2px);
           z-index: 0;
+          background: var(--card-bg);
         }
 
         .download-resume-button {
@@ -150,11 +152,7 @@ export function DownloadResume() {
             rgba(240, 240, 240, 0) 276deg,
             rgba(240, 240, 240, 0) 360deg
           );
-          box-shadow: 0 0 18px rgba(34, 211, 238, 0.36);
-        }
-
-        :global(.dark) .download-resume-button-shell::before {
-          background: #000;
+          box-shadow: 0 0 10px rgba(34, 211, 238, 0.36);
         }
 
         @keyframes ticket-border-spin {
