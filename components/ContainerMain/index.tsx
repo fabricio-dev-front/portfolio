@@ -4,6 +4,7 @@ import LinkedinPosts from "./PostsLinkedin";
 import LinkedinPostsSkeleton from "./PostsLinkedin/skeleton";
 import { GithubCalendarComponent } from "./GithubCalendar";
 import { Experiences } from "./Experiences";
+import { Contact } from "./Contact";
 
 export function ContainerMain() {
   return (
@@ -14,6 +15,8 @@ export function ContainerMain() {
 
       <Experiences />
 
+      <Contact />
+
       <div className="rounded-lg bg-card border border-card-border shadow-sm flex items-center py-4 px-6 justify-between">
         <span className="font-semibold text-foreground text-[16px]">
           Posts Recentes
@@ -22,6 +25,8 @@ export function ContainerMain() {
       <Suspense fallback={<LinkedinPostsSkeleton />}>
         <LinkedinPosts />
       </Suspense>
+
     </div>
   );
 }
+

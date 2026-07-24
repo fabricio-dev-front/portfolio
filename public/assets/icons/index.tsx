@@ -6,6 +6,8 @@ import { IconClose } from "./IconClose";
 import { IconChevronDown } from "./IconChevronDown";
 import { IconSun } from "./IconSun";
 import { IconMoon } from "./IconMoon";
+import { IconWhatsapp } from "./IconWhatsapp";
+import { IconMail } from "./IconMail";
 
 export {
   IconComments,
@@ -16,4 +18,7 @@ export {
   IconChevronDown,
   IconSun,
   IconMoon,
+  IconWhatsapp,
+  IconMail,
 };
+
