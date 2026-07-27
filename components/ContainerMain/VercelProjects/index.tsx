@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { vercelProjects } from "@/lib/vercelProjects";
 import { IconRepository } from "@/public/assets/icons";
+import { motion } from "motion/react";
 
 interface ButtonsCardProps {
   deployUrl: string;
@@ -22,6 +25,7 @@ function ButtonsCard({ deployUrl, githubUrl }: ButtonsCardProps) {
         <Link
           href={githubUrl}
           target="_blank"
+          aria-label="Ver repositório no GitHub"
           className="px-3 flex items-center justify-center border border-card-border rounded-lg hover:bg-card-border/20 transition"
         >
           <IconRepository />
@@ -34,12 +38,24 @@ function ButtonsCard({ deployUrl, githubUrl }: ButtonsCardProps) {
 export function VercelProjects() {
   return (
     <div className="grid md:grid-cols-2 gap-4">
-      {vercelProjects.map((project) => (
-        <article
+      {vercelProjects.map((project, index) => (
+        <motion.article
           key={project.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.45,
+            delay: index * 0.12,
+            ease: [0.16, 1, 0.3, 1],
+          }}
           className="group rounded-xl overflow-hidden bg-card border border-card-border flex flex-col justify-between shadow-xs transition-all duration-300 hover:shadow-md hover:border-link/30 hover:-translate-y-1 hover:cursor-pointer"
         >
           <div className="relative h-44 w-full overflow-hidden bg-card-border/50">
+            <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 bg-emerald-500/90 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-sm">
+              <span className="size-1.5 rounded-full bg-white status-dot" />
+              Live
+            </div>
+
             <Image
               src={project.imageUrl}
               alt={`Preview do projeto ${project.name}`}
@@ -65,7 +81,7 @@ export function VercelProjects() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-1 rounded bg-background text-xs text-muted-foreground"
+                    className="px-2 py-1 rounded bg-(--accent-subtle) text-xs text-accent font-medium"
                   >
                     {tag}
                   </span>
@@ -78,7 +94,7 @@ export function VercelProjects() {
               />
             </div>
           </div>
-        </article>
+        </motion.article>
       ))}
     </div>
   );
