@@ -17,9 +17,17 @@ export default function Home() {
         <VercelProjects />
       </PageSection>
 
-      <PageSection id="experiencias" className="bg-card/30">
+      <div className="max-w-5xl mx-auto px-4 md:px-8">
+        <div className="h-px bg-card-border/50" />
+      </div>
+
+      <PageSection id="experiencias">
         <Experiences />
       </PageSection>
+
+      <div className="max-w-5xl mx-auto px-4 md:px-8">
+        <div className="h-px bg-card-border/50" />
+      </div>
 
       <PageSection id="contato">
         <Contact />

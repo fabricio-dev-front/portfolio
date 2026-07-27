@@ -14,6 +14,7 @@ import { IconReact } from "./IconReact";
 import { IconTypeScript } from "./IconTypeScript";
 import { IconNextjs } from "./IconNextjs";
 import { IconGit } from "./IconGit";
+import { IconLocalizacao } from "./IconLocalizacao";
 
 export {
   IconRepository,
@@ -32,4 +33,5 @@ export {
   IconTypeScript,
   IconNextjs,
   IconGit,
+  IconLocalizacao,
 };
