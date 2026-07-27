@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeToggle/ThemeProvider";
+import { Navbar } from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fabricio | Desenvolvedor Front-end",
-  description: "Portifolio Fabricio Pereira",
+  title: "Fabricio Pereira | Front-End Software Engineer",
+  description:
+    "Portfólio de Fabricio Pereira, Front-End Software Engineer especializado em React, Next.js e TypeScript.",
+  keywords: [
+    "Front-End",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Desenvolvedor",
+    "Fabricio Pereira",
+  ],
+  authors: [{ name: "Fabricio Pereira" }],
+  openGraph: {
+    title: "Fabricio Pereira | Front-End Software Engineer",
+    description:
+      "Portfólio de Fabricio Pereira, Front-End Software Engineer especializado em React, Next.js e TypeScript.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
@@ -36,6 +53,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
