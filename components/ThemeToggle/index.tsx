@@ -15,7 +15,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-10 h-10 rounded-full bg-tag border border-card-border animate-pulse" />
+      <div className="w-9 h-9 rounded-lg bg-card border border-card-border animate-pulse" />
     );
   }
 
@@ -24,7 +24,8 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="border p-4 shadow-sm rounded-lg bg-card border-card-border hover:cursor-pointer"
+      aria-label={isDark ? "Ativar modo claro" : "Ativar modo escuro"}
+      className="p-2 rounded-lg text-muted-text hover:text-foreground hover:bg-card-border/30 transition-all duration-200 hover:cursor-pointer"
     >
       {isDark ? <IconSun /> : <IconMoon />}
     </button>
