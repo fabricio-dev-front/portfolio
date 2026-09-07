@@ -1,62 +1,57 @@
 @import "tailwindcss";
 
-/* ── Design Tokens ─────────────────────────── */
 :root {
-  --background: #f6f8fa;
-  --foreground: #1f2328;
-  --card-bg: #ffffff;
-  --card-border: #d0d7de;
-  --muted-text: #636c76;
-  --primary-button-bg: #24292f;
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card-bg: #fafafa;
+  --card-border: #e4e4e7;
+  --muted-text: #71717a;
+  --primary-button-bg: #09090b;
   --primary-button-text: #ffffff;
-  --tag-bg: #eff1f3;
-  --tag-text: #24292f;
-  --link-color: #0969da;
+  --tag-bg: #f4f4f5;
+  --tag-text: #18181b;
+  --link-color: #09090b;
 
-  /* Accent / Glow */
-  --accent: #2563eb;
-  --accent-light: #3b82f6;
-  --accent-glow: rgba(37, 99, 235, 0.25);
-  --accent-subtle: rgba(37, 99, 235, 0.08);
+  --accent: #09090b;
+  --accent-light: #27272a;
+  --accent-glow: rgba(0, 0, 0, 0.08);
+  --accent-subtle: rgba(0, 0, 0, 0.04);
 
-  /* Gradients */
-  --gradient-start: #2563eb;
-  --gradient-end: #7c3aed;
+  --gradient-start: #09090b;
+  --gradient-end: #3f3f46;
 
-  /* Navbar */
-  --navbar-bg: rgba(255, 255, 255, 0.8);
-  --navbar-border: rgba(208, 215, 222, 0.6);
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --navbar-border: rgba(228, 228, 231, 0.8);
 
-  /* Skeleton shimmer */
-  --skeleton-base: #e2e8f0;
-  --skeleton-shine: #f8fafc;
+  --skeleton-base: #f4f4f5;
+  --skeleton-shine: #e4e4e7;
 }
 
 .dark {
-  --background: #0d1117;
-  --foreground: #e6edf3;
-  --card-bg: #161b22;
-  --card-border: #30363d;
-  --muted-text: #8d96a0;
-  --primary-button-bg: #21262d;
-  --primary-button-text: #c9d1d9;
-  --tag-bg: rgba(37, 99, 235, 0.12);
-  --tag-text: #60a5fa;
-  --link-color: #58a6ff;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --card-bg: #121215;
+  --card-border: #27272a;
+  --muted-text: #a1a1aa;
+  --primary-button-bg: #fafafa;
+  --primary-button-text: #09090b;
+  --tag-bg: #18181b;
+  --tag-text: #e4e4e7;
+  --link-color: #fafafa;
 
-  --accent: #3b82f6;
-  --accent-light: #60a5fa;
-  --accent-glow: rgba(59, 130, 246, 0.3);
-  --accent-subtle: rgba(59, 130, 246, 0.08);
+  --accent: #fafafa;
+  --accent-light: #e4e4e7;
+  --accent-glow: rgba(255, 255, 255, 0.12);
+  --accent-subtle: rgba(255, 255, 255, 0.06);
 
-  --gradient-start: #3b82f6;
-  --gradient-end: #8b5cf6;
+  --gradient-start: #fafafa;
+  --gradient-end: #a1a1aa;
 
-  --navbar-bg: rgba(13, 17, 23, 0.85);
-  --navbar-border: rgba(48, 54, 61, 0.8);
+  --navbar-bg: rgba(9, 9, 11, 0.85);
+  --navbar-border: rgba(39, 39, 42, 0.8);
 
-  --skeleton-base: #21262d;
-  --skeleton-shine: #30363d;
+  --skeleton-base: #18181b;
+  --skeleton-shine: #27272a;
 }
 
 /* ── Tailwind Theme ──────────────────────────── */
@@ -72,7 +67,7 @@
   --color-tag-text: var(--tag-text);
   --color-link: var(--link-color);
   --color-accent: var(--accent);
-  --font-sans: "Inter", var(--font-geist-sans), system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), "Inter", system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
@@ -85,12 +80,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family:
+    var(--font-geist-sans),
     "Inter",
+    system-ui,
     -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Helvetica,
-    Arial,
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

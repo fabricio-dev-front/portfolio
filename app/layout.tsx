@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeToggle/ThemeProvider";
-import { Navbar } from "@/components/Navbar";
-import { GeometricBackground } from "@/components/GeometricBackground";
+import { ThemeProvider, Navbar } from "@/components";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,22 +14,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fabricio Pereira | Front-End Software Engineer",
+  title: "Fabricio Pereira | Software Engineer & AI",
   description:
-    "Portfólio de Fabricio Pereira, Front-End Software Engineer especializado em React, Next.js e TypeScript.",
+    "Portfólio de Fabricio Pereira, Engenheiro de Software especializado em aplicações modernas com React, Next.js, TypeScript e soluções em Inteligência Artificial.",
   keywords: [
-    "Front-End",
-    "React",
+    "Software Engineer",
+    "Engenheiro de Software",
+    "Inteligência Artificial",
+    "AI",
     "Next.js",
+    "React",
     "TypeScript",
-    "Desenvolvedor",
     "Fabricio Pereira",
   ],
   authors: [{ name: "Fabricio Pereira" }],
   openGraph: {
-    title: "Fabricio Pereira | Front-End Software Engineer",
+    title: "Fabricio Pereira | Software Engineer & AI",
     description:
-      "Portfólio de Fabricio Pereira, Front-End Software Engineer especializado em React, Next.js e TypeScript.",
+      "Portfólio de Fabricio Pereira, Engenheiro de Software especializado em aplicações modernas com React, Next.js, TypeScript e Inteligência Artificial.",
     type: "website",
   },
 };
@@ -54,7 +54,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <GeometricBackground />
           <Navbar />
           {children}
         </ThemeProvider>

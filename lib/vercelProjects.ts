@@ -2,6 +2,24 @@ import { VercelProject } from "@/types/vercelProjects";
 
 export const vercelProjects: VercelProject[] = [
   {
+    id: "seu-estilo-barbershop",
+    name: "Barbershop",
+    description:
+      "Plataforma completa de agendamento online para barbearia, permitindo que clientes escolham serviços, datas e horários de forma rápida e intuitiva. Conta também com um painel de controle totalmente configurável pelo barbeiro, onde é possível gerenciar serviços, horários, disponibilidade e agendamentos.",
+    deployUrl: "https://seu-estilo-barbershop.vercel.app/",
+    githubUrl: "",
+    imageUrl: "/assets/img/projects/barbershop.png",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Git",
+      "GitHub",
+      "Vercel",
+      "Neon",
+    ],
+  },
+  {
     id: "proof-of-payment",
     name: "Proof of Payment",
     description:
