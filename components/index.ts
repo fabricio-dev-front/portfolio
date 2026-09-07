@@ -2,7 +2,6 @@
 export { Navbar } from "./layout/Navbar";
 export { Footer } from "./layout/Footer";
 export { PageSection } from "./layout/PageSection";
-export { GeometricBackground } from "./layout/GeometricBackground";
 
 // Sections
 export { HeroSection } from "./sections/HeroSection";

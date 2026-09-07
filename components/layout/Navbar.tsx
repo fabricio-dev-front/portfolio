@@ -58,13 +58,18 @@ export function Navbar() {
     <>
       <header className="glass fixed top-0 left-0 right-0 z-50 h-14">
         <div className="max-w-5xl mx-auto h-full flex items-center justify-between px-4 md:px-8">
-          <Link
-            href="/"
-            onClick={() => setMenuOpen(false)}
-            className="font-bold text-base tracking-tight animated-gradient-text select-none shrink-0"
-          >
-            fabricio.dev
-          </Link>
+          <div className="flex items-center gap-2.5">
+            <Link
+              href="/"
+              onClick={() => setMenuOpen(false)}
+              className="font-bold text-base tracking-tight text-foreground select-none shrink-0"
+            >
+              fabricio<span className="text-accent">.dev</span>
+            </Link>
+            <span className="hidden sm:inline-flex items-center text-[10px] font-mono tracking-wider uppercase px-2 py-0.5 rounded-full border border-card-border bg-card/60 text-muted-text">
+              Software Engineer
+            </span>
+          </div>
 
           <nav
             className="hidden md:flex items-center gap-1"
@@ -76,10 +81,10 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium px-3 py-1.5 rounded-lg transition-all duration-200 ${
+                  className={`text-sm font-medium px-3.5 py-1.5 rounded-lg transition-all duration-200 ${
                     isActive
-                      ? "bg-(--accent-subtle) text-accent font-semibold"
-                      : "text-muted-text hover:text-foreground hover:bg-card-border/20"
+                      ? "bg-foreground text-background font-medium shadow-xs"
+                      : "text-muted-text hover:text-foreground hover:bg-card-border/30"
                   }`}
                 >
                   {link.label}
@@ -150,78 +155,105 @@ export function Navbar() {
 
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 md:hidden flex flex-col"
-            style={{ backgroundColor: "var(--background)" }}
-          >
-            <div className="h-14 shrink-0" />
-
-            <nav
-              className="flex-1 flex flex-col items-center justify-center gap-2 px-8"
-              aria-label="Menu mobile"
-            >
-              {navLinks.map((link, index) => {
-                const isActive = activeSection === link.id;
-                return (
-                  <motion.a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 16 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: index * 0.07,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className={`w-full text-center text-3xl font-bold py-4 rounded-2xl transition-colors duration-200 ${
-                      isActive
-                        ? "text-accent bg-[var(--accent-subtle)]"
-                        : "text-foreground hover:text-accent"
-                    }`}
-                  >
-                    {link.label}
-                  </motion.a>
-                );
-              })}
-            </nav>
-
+          <>
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              key="mobile-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3, delay: 0.28 }}
-              className="shrink-0 pb-10 flex items-center justify-center gap-6"
+              transition={{ duration: 0.2 }}
+              onClick={() => setMenuOpen(false)}
+              className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs md:hidden"
+              aria-hidden="true"
+            />
+
+            <motion.aside
+              key="mobile-drawer"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{
+                type: "spring",
+                damping: 28,
+                stiffness: 300,
+              }}
+              className="fixed top-0 bottom-0 right-0 z-50 w-70 sm:w-[320px] max-w-[85vw] bg-card border-l border-card-border p-6 flex flex-col justify-between md:hidden shadow-2xl"
+              aria-label="Menu de navegação mobile"
             >
-              <a
-                href="https://github.com/fabricio-dev-front"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 text-sm text-muted-text hover:text-foreground transition-colors"
-              >
-                <IconGithub width={18} height={18} />
-                GitHub
-              </a>
-              <div className="w-px h-4 bg-card-border" />
-              <a
-                href="https://www.linkedin.com/in/fabricio-dev-front/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
-                className="flex items-center gap-2 text-sm text-muted-text hover:text-[#0A66C2] transition-colors"
-              >
-                <IconLinkedin width={18} height={18} />
-                LinkedIn
-              </a>
-            </motion.div>
-          </motion.div>
+              <div>
+                <div className="flex items-center justify-between pb-5 border-b border-card-border/60">
+                  <Link
+                    href="/"
+                    onClick={() => setMenuOpen(false)}
+                    className="font-bold text-base tracking-tight text-foreground select-none"
+                  >
+                    fabricio<span className="text-accent">.dev</span>
+                  </Link>
+
+                  <button
+                    onClick={() => setMenuOpen(false)}
+                    aria-label="Fechar menu"
+                    className="p-2 rounded-lg text-muted-text hover:text-foreground hover:bg-card-border/30 transition-colors"
+                  >
+                    <IconClose width={18} height={18} />
+                  </button>
+                </div>
+
+                <nav
+                  className="flex flex-col gap-1.5 py-6"
+                  aria-label="Links mobile"
+                >
+                  {navLinks.map((link) => {
+                    const isActive = activeSection === link.id;
+                    return (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => setMenuOpen(false)}
+                        className={`flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                          isActive
+                            ? "bg-foreground text-background font-semibold shadow-xs"
+                            : "text-muted-text hover:text-foreground hover:bg-card-border/30"
+                        }`}
+                      >
+                        <span>{link.label}</span>
+                        <span className="text-xs font-mono opacity-50">↗</span>
+                      </a>
+                    );
+                  })}
+                </nav>
+              </div>
+
+              <div className="pt-5 border-t border-card-border/60 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://github.com/fabricio-dev-front"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    aria-label="GitHub"
+                    className="p-2 rounded-lg text-muted-text hover:text-foreground hover:bg-card-border/30 transition-colors"
+                  >
+                    <IconGithub width={18} height={18} />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/fabricio-dev-front/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMenuOpen(false)}
+                    aria-label="LinkedIn"
+                    className="p-2 rounded-lg text-muted-text hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 transition-colors"
+                  >
+                    <IconLinkedin width={18} height={18} />
+                  </a>
+                </div>
+
+                <span className="text-[11px] font-mono text-muted-text">
+                  v2.0
+                </span>
+              </div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </>
