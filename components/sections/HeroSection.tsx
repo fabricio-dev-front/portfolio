@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { DownloadResume } from "@/components/DownloadResume";
-import { AnimatedSection } from "@/components/AnimatedSection";
+import { DownloadResume } from "@/components/ui/DownloadResume";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import {
   IconHTML,
   IconCSS,

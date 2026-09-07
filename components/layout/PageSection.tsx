@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { AnimatedSection } from "@/components/AnimatedSection";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 interface PageSectionProps {
   id: string;

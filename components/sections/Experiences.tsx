@@ -109,20 +109,20 @@ function ExperienceCard({
 }
 
 export function Experiences() {
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
-  const toggleExpanded = (id: string) => {
-    setExpandedId(expandedId === id ? null : id);
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="relative">
       {experiences.map((experience, index) => (
         <ExperienceCard
-          key={experience.id}
+          key={experience.company}
           experience={experience}
-          expanded={expandedId === experience.id}
-          onToggle={() => toggleExpanded(experience.id)}
+          expanded={expandedIndex === index}
+          onToggle={() => toggleExpand(index)}
           index={index}
         />
       ))}
