@@ -159,14 +159,14 @@ export function Experiences() {
         {/* Linha estática de base da timeline */}
         <div
           aria-hidden="true"
-          className="absolute left-5 sm:left-[21px] top-6 bottom-10 w-[2px] bg-card-border/60 pointer-events-none -translate-x-1/2"
+          className="absolute left-5 sm:left-5.25 top-6 bottom-10 w-0.5 bg-card-border/60 pointer-events-none -translate-x-1/2"
         />
 
         {/* Trilha Laser Neon reativa ao Scroll */}
         <motion.div
           aria-hidden="true"
           style={{ scaleY }}
-          className="absolute left-5 sm:left-[21px] top-6 bottom-10 w-[2px] bg-linear-to-b from-emerald-400 via-cyan-400 to-indigo-500 origin-top pointer-events-none -translate-x-1/2 shadow-[0_0_10px_rgba(52,211,153,0.8)] z-1"
+          className="absolute left-5 sm:left-5.25 top-6 bottom-10 w-0.5 bg-linear-to-b from-emerald-400 via-cyan-400 to-indigo-500 origin-top pointer-events-none -translate-x-1/2 shadow-[0_0_10px_rgba(52,211,153,0.8)] z-1"
         />
 
         {experiences.map((experience, index) => (
