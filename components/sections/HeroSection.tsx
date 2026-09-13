@@ -4,6 +4,10 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IconGithub, IconLinkedin } from "@/public/assets/icons";
 
 export function HeroSection() {
+  const whatsappUrl = `https://wa.me/5584981531756?text=${encodeURIComponent(
+    "Olá, Fabrício! vim pelo seu portfólio e tenho interesse em um sistema para o meu negócio.",
+  )}`;
+
   return (
     <section
       id="sobre"
@@ -107,6 +111,23 @@ export function HeroSection() {
                 >
                   <IconLinkedin width={16} height={16} />
                   <span>LinkedIn</span>
+                </a>
+                <span className="text-card-border">•</span>
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp de Fabricio Pereira"
+                  className="flex bg-green-700 p-2 rounded text-white  items-center gap-2 text-xs hover:text-foreground transition-colors"
+                >
+                  <Image
+                    src="/assets/img/image.png"
+                    alt="WhatsApp"
+                    width={16}
+                    height={16}
+                    className="w-4 h-4"
+                  />
+                  <span>WhatsApp</span>
                 </a>
               </div>
             </AnimatedSection>
