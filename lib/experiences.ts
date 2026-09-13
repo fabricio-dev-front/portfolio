@@ -56,6 +56,7 @@ export const experiences: Experience[] = [
     period: "Atual",
     startDate: "2026-08",
     endDate: "Atual",
+    function: "IA Engineer - Full Stack",
     description:
       "Atuação no desenvolvimento Full Stack, projetando e evoluindo aplicações modernas com foco em arquitetura, escalabilidade e qualidade de código. Utilizo Inteligência Artificial de forma estruturada ao longo do ciclo de desenvolvimento, desde o planejamento e análise de requisitos até implementação, refatoração, testes e otimização, buscando aumentar a eficiência sem comprometer boas práticas e decisões técnicas.",
     technologies: [
@@ -83,6 +84,7 @@ export const experiences: Experience[] = [
     period: "Ago 2024 - Jul 2026",
     startDate: "2024-08",
     endDate: "2026-07",
+    function: "Front-end Engineer",
     description:
       "Atuação no desenvolvimento e manutenção de aplicações web utilizando React, Next.js, TypeScript e Tailwind CSS. Participei de projetos Web3, incluindo o desenvolvimento de interfaces para um marketplace de NFTs integrado ao ecossistema Solana, soluções whitelabel e rebranding de plataformas internacionais. Também contribuí para melhorias de performance, experiência do usuário, correção de bugs, code reviews e colaboração em equipes ágeis.",
     technologies: [
@@ -103,6 +105,7 @@ export const experiences: Experience[] = [
     company: "AltoTech",
     period: "Jan 2023 - Jun 2024",
     startDate: "2023-01",
+    function: "Front-end Engineer",
     endDate: "2024-06",
     description:
       "Iniciei minha carreira como Desenvolvedor Front-end, desenvolvendo interfaces responsivas com HTML, CSS e JavaScript. Colaborei na implementação e manutenção de funcionalidades, participei de workshops técnicos e trabalhei em conjunto com a equipe no desenvolvimento de interfaces focadas em usabilidade e boas práticas de desenvolvimento.",

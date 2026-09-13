@@ -53,12 +53,12 @@ function ExperienceCard({
               {experience.company}
             </h3>
             <p className="text-xs font-mono text-muted-text mt-0.5">
-              Engenharia de Software
+              {experience.function}
             </p>
           </div>
 
           {/* Período com Duração Calculada */}
-          <div className="inline-flex items-center gap-1.5 text-xs font-mono bg-background border border-card-border px-3 py-1 rounded-full shrink-0 shadow-2xs">
+          <div className="inline-flex items-center gap-1.5 text-[10px] font-mono bg-background border border-card-border px-3 py-1 rounded-full shrink-0 shadow-2xs">
             <span className="text-muted-text">{experience.period}</span>
             {duration && (
               <>
@@ -140,8 +140,7 @@ export function Experiences() {
             <p className="text-xs font-mono uppercase tracking-widest text-muted-text font-medium">
               Trajetória Profissional
             </p>
-            <span className="text-card-border">•</span>
-            <span className="text-[11px] font-mono px-2 py-0.5 rounded-full border border-card-border bg-card text-foreground font-medium">
+            <span className="text-[11px] truncate font-mono px-2 py-0.5 rounded-full border border-card-border bg-card text-foreground font-medium">
               {totalExperience}
             </span>
           </div>
