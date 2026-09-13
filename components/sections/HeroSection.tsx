@@ -1,23 +1,77 @@
+"use client";
+
 import Image from "next/image";
 import { DownloadResume } from "@/components/ui/DownloadResume";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IconGithub, IconLinkedin } from "@/public/assets/icons";
 import { whatsappUrl } from "@/lib/wharsapp";
+import { motion, type Variants } from "motion/react";
+
+const textContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.05,
+    },
+  },
+};
+
+const textItemVariants: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
+};
+
+const photoVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.96, y: 16 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 24,
+      delay: 0.15,
+    },
+  },
+};
 
 export function HeroSection() {
   return (
     <section
       id="sobre"
-      className="w-full scroll-mt-14 min-h-[calc(100vh-3.5rem)] flex items-center py-12 md:py-20"
+      className="relative w-full scroll-mt-14 min-h-[calc(100vh-3.5rem)] flex items-center py-12 md:py-20 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto px-4 md:px-8 w-full">
+      {/* Aurora Glow Atmosférico (Cores suaves de fundo) */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-32 right-0 md:right-1/4 -z-10 w-96 h-96 bg-linear-to-tr from-emerald-500/10 via-cyan-500/10 to-indigo-500/10 blur-[120px] rounded-full pointer-events-none"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-20 left-0 md:left-1/4 -z-10 w-80 h-80 bg-linear-to-tr from-indigo-500/10 via-purple-500/10 to-pink-500/5 blur-[100px] rounded-full pointer-events-none"
+      />
+
+      <div className="max-w-5xl mx-auto px-4 md:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-6 flex justify-center lg:justify-end order-1 lg:order-2">
-            <AnimatedSection
-              delay={0.05}
+            <motion.div
+              variants={photoVariants}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
               className="w-full max-w-90 sm:max-w-105"
             >
-              <div className="relative rounded-3xl p-2 bg-card border border-card-border shadow-xl">
+              <div className="relative rounded-3xl p-2 bg-card/80 backdrop-blur-xs border border-card-border shadow-xl">
                 <div className="relative aspect-4/5 w-full rounded-2xl overflow-hidden bg-zinc-950">
                   <Image
                     src="/assets/img/profile-senior.jpg"
@@ -43,42 +97,46 @@ export function HeroSection() {
                   </div>
                 </div>
               </div>
-            </AnimatedSection>
+            </motion.div>
           </div>
 
-          <div className="lg:col-span-6 flex flex-col gap-5 text-center lg:text-left order-2 lg:order-1">
-            <AnimatedSection delay={0.08}>
-              <div className="flex justify-center lg:justify-start">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono border border-card-border bg-card text-muted-text">
-                  <span className="size-1.5 rounded-full bg-foreground" />
-                  Software Engineer & AI
-                </span>
-              </div>
-            </AnimatedSection>
+          <motion.div
+            variants={textContainerVariants}
+            initial="hidden"
+            animate="visible"
+            className="lg:col-span-6 flex flex-col gap-5 text-center lg:text-left order-2 lg:order-1"
+          >
+            <motion.div
+              variants={textItemVariants}
+              className="flex justify-center lg:justify-start"
+            >
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono border border-card-border bg-card/80 backdrop-blur-xs text-muted-text shadow-2xs">
+                <span className="size-1.5 rounded-full bg-foreground" />
+                Software Engineer & AI
+              </span>
+            </motion.div>
 
-            <AnimatedSection delay={0.12}>
-              <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground leading-[1.05]">
-                  Fabricio Pereira
-                </h1>
-                <p className="text-xl sm:text-2xl font-medium text-muted-text mt-2.5 tracking-tight">
-                  Engenharia de Software & Inteligência Artificial
-                </p>
-              </div>
-            </AnimatedSection>
+            <motion.div variants={textItemVariants}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter text-foreground leading-[1.05]">
+                Fabricio Pereira
+              </h1>
+              <p className="text-xl sm:text-2xl font-medium text-muted-text mt-2.5 tracking-tight">
+                Engenharia de Software & Inteligência Artificial
+              </p>
+            </motion.div>
 
-            <AnimatedSection delay={0.16}>
+            <motion.div variants={textItemVariants}>
               <p className="text-muted-text text-sm sm:text-base leading-relaxed max-w-md mx-auto lg:mx-0">
                 Desenvolvimento de sistemas robustos, interfaces de alta
                 performance e integração de soluções inteligentes para a web.
               </p>
-            </AnimatedSection>
+            </motion.div>
 
-            <AnimatedSection delay={0.2}>
+            <motion.div variants={textItemVariants}>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
                 <a
                   href="#contato"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-foreground text-background font-medium text-sm transition-all duration-200 hover:opacity-90 active:scale-[0.98] shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-xl bg-foreground text-background font-medium text-sm transition-all duration-200 hover:opacity-90 active:scale-[0.98] shadow-sm hover:shadow-md"
                 >
                   Entrar em contato
                 </a>
@@ -115,7 +173,7 @@ export function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp de Fabricio Pereira"
-                  className="flex bg-green-700 p-2 rounded text-white  items-center gap-2 text-xs hover:text-foreground transition-colors"
+                  className="flex bg-green-700 p-2 rounded text-white items-center gap-2 text-xs transition-colors hover:bg-green-600"
                 >
                   <Image
                     src="/assets/img/image.png"
@@ -127,8 +185,8 @@ export function HeroSection() {
                   <span>WhatsApp</span>
                 </a>
               </div>
-            </AnimatedSection>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
