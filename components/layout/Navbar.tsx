@@ -138,13 +138,24 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium px-3.5 py-1.5 rounded-lg transition-all duration-200 ${
+                  className={`relative text-sm font-medium px-3.5 py-1.5 rounded-lg transition-colors duration-200 ${
                     isActive
-                      ? "bg-foreground text-background font-medium shadow-xs"
+                      ? "text-background"
                       : "text-muted-text hover:text-foreground hover:bg-card-border/30"
                   }`}
                 >
-                  {link.label}
+                  {isActive && (
+                    <motion.span
+                      layoutId="navbar-active-pill"
+                      className="absolute inset-0 rounded-lg bg-foreground shadow-xs"
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                  <span className="relative z-10">{link.label}</span>
                 </a>
               );
             })}
