@@ -2,12 +2,9 @@ import Image from "next/image";
 import { DownloadResume } from "@/components/ui/DownloadResume";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { IconGithub, IconLinkedin } from "@/public/assets/icons";
+import { whatsappUrl } from "@/lib/wharsapp";
 
 export function HeroSection() {
-  const whatsappUrl = `https://wa.me/5584981531756?text=${encodeURIComponent(
-    "Olá, Fabrício! vim pelo seu portfólio e tenho interesse em um sistema para o meu negócio.",
-  )}`;
-
   return (
     <section
       id="sobre"
@@ -125,7 +122,7 @@ export function HeroSection() {
                     alt="WhatsApp"
                     width={16}
                     height={16}
-                    className="w-4 h-4"
+                    className="size-4.5"
                   />
                   <span>WhatsApp</span>
                 </a>

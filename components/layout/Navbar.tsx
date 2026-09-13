@@ -8,8 +8,10 @@ import {
   IconClose,
 } from "@/public/assets/icons";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { whatsappUrl } from "@/lib/wharsapp";
 
 const navLinks = [
   { href: "#sobre", label: "Sobre", id: "sobre" },
@@ -21,6 +23,49 @@ const navLinks = [
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("sobre");
+
+  function RedesSociais() {
+    return (
+      <div className="flex items-center gap-1">
+        <a
+          href="https://github.com/fabricio-dev-front"
+          target="_blank"
+          onClick={() => setMenuOpen(false)}
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          className="p-2 rounded-lg text-muted-text hover:text-foreground hover:bg-card-border/30 transition-all duration-200"
+        >
+          <IconGithub width={17} height={17} />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/fabricio-dev-front/"
+          target="_blank"
+          onClick={() => setMenuOpen(false)}
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="p-2 rounded-lg text-muted-text hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 transition-all duration-200"
+        >
+          <IconLinkedin width={17} height={17} />
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+          className="p-2 rounded-lg text-muted-text hover:bg-green-600/10 transition-all duration-200"
+        >
+          <Image
+            src="/assets/img/image.png"
+            alt="WhatsApp"
+            width={17}
+            height={17}
+            className="size-4.25"
+          />
+        </a>
+        <div className="w-px h-6 bg-card-border mx-2 lg:flex hidden" />
+      </div>
+    );
+  }
 
   useEffect(() => {
     const sectionIds = ["sobre", "projetos", "experiencias", "contato"];
@@ -53,6 +98,18 @@ export function Navbar() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const handleMediaChange = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        setMenuOpen(false);
+      }
+    };
+
+    mediaQuery.addEventListener("change", handleMediaChange);
+    return () => mediaQuery.removeEventListener("change", handleMediaChange);
+  }, []);
 
   return (
     <>
@@ -94,27 +151,7 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:flex items-center gap-1">
-              <a
-                href="https://github.com/fabricio-dev-front"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="p-2 rounded-lg text-muted-text hover:text-foreground hover:bg-card-border/30 transition-all duration-200"
-              >
-                <IconGithub width={17} height={17} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/fabricio-dev-front/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="p-2 rounded-lg text-muted-text hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 transition-all duration-200"
-              >
-                <IconLinkedin width={17} height={17} />
-              </a>
-              <div className="w-px h-4 bg-card-border mx-1" />
-            </div>
+            <div className="hidden md:flex ">{RedesSociais()}</div>
 
             <ThemeToggle />
 
@@ -225,28 +262,7 @@ export function Navbar() {
               </div>
 
               <div className="pt-5 border-t border-card-border/60 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <a
-                    href="https://github.com/fabricio-dev-front"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMenuOpen(false)}
-                    aria-label="GitHub"
-                    className="p-2 rounded-lg text-muted-text hover:text-foreground hover:bg-card-border/30 transition-colors"
-                  >
-                    <IconGithub width={18} height={18} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/fabricio-dev-front/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setMenuOpen(false)}
-                    aria-label="LinkedIn"
-                    className="p-2 rounded-lg text-muted-text hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 transition-colors"
-                  >
-                    <IconLinkedin width={18} height={18} />
-                  </a>
-                </div>
+                {RedesSociais()}
 
                 <span className="text-[11px] font-mono text-muted-text">
                   v2.0
