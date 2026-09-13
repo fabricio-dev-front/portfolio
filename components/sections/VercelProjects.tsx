@@ -91,14 +91,16 @@ export function VercelProjects() {
                   </div>
 
                   <div className="flex items-center gap-3 pt-3 border-t border-card-border/50">
-                    <Link
-                      href={project.deployUrl}
-                      target="_blank"
-                      className="inline-flex items-center justify-center w-full gap-2 py-2.5 px-5 rounded-md bg-foreground text-background text-xs sm:text-sm font-medium hover:opacity-90 active:scale-[0.98] transition-all shadow-2xs"
-                    >
-                      <span>Acessar site</span>
-                      <span className="text-xs">↗</span>
-                    </Link>
+                    {project.deployUrl ? (
+                      <Link
+                        href={project.deployUrl}
+                        target="_blank"
+                        className="inline-flex items-center justify-center w-full gap-2 py-2.5 px-5 rounded-md bg-foreground text-background text-xs sm:text-sm font-medium hover:opacity-90 active:scale-[0.98] transition-all shadow-2xs"
+                      >
+                        <span>Acessar site</span>
+                        <span className="text-xs">↗</span>
+                      </Link>
+                    ) : null}
 
                     {project.githubUrl && project.githubUrl.trim() !== "" && (
                       <Link
